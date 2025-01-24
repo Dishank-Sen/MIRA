@@ -1,0 +1,49 @@
+# version format ex. "0.0.1"
+version: "1.0.1"
+
+# Basic metadata for the agent
+metadata:
+  name: "search-generator"
+  description: "This flow will give you the song data and other songs related to it based on a given topic."
+  author: "coderkrishna" # This username should match your account username
+  tags: [song, artist, lyrics, music] # Added "music" as a related keyword
+  private: false # Access control for your flows (true/false)
+
+# Define the input variables required
+inputs:
+  topic:
+    type: string #Currently we only support String format
+    description: "Enter the topic of the song (e.g., love, romantic, life struggles)."
+    required: true
+    example: "Love, romantic, hard life, etc."
+  # If you want to search for artists as well, you can use this input
+  artist:
+    type: string
+    description: "Enter the artist of the song (optional)."
+    required: false
+    example: "Ed Sheeran, Dua Lipa, Alan Walker, etc."
+
+# LLM configuration
+model:
+  provider: "openai" # Using OpenAI's GPT model (change if you want to use others)
+  name: "gpt-4o" # Using the GPT-3.5 turbo model
+
+# Dataset configuration (Optional)
+# dataset:
+#   source: "author_name/dataset_name" # Make sure this dataset exists
+
+# Prompt template configuration
+prompt: |
+  Given the topic "{topic}" and artist "{artist}", suggest relevant songs and provide their artists. If the artist is not provided, suggest songs related to the topic "{topic}" and their artists.
+
+  Example input for topic: "Love, romantic"
+  Example output: "Song: 'Perfect', Artist: Ed Sheeran, Song: 'Shape of You', Artist: Ed Sheeran."
+
+# ReadMe configuration
+readme: |
+  This flow helps you find songs related to a given topic and, optionally, by a specific artist. You can provide a topic (e.g., love, heartbreak) and an artist (e.g., Ed Sheeran), and the flow will return songs that match the topic or artist.
+
+  Example:
+  - Input1: "Love"
+  - Input2: "Ed Sheeran"
+  - Output: "Song: 'Perfect', Artist: Ed Sheeran"
