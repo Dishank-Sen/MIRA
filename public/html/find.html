@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shazam Clone</title>
+    <link rel="stylesheet" href="../css/find.css">
+</head>
+<body>
+
+    <header>
+        <h1>Shazam</h1>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+                <li><a href="../find.html">Find</a></li>
+                <li class="search-container">
+                    <input type="text" placeholder="Search..." id="search-bar">
+                    <button type="submit">Search</button>
+                </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="shazam-container">
+            <div class="shazam-button-container">
+                <button id="shazamButton" class="shazam-button">
+                    <i class="fa fa-music"></i> Start Listening
+                </button>
+            </div>
+
+            <!-- Track Info Display -->
+            <div class="track-info" style="display: none;">
+                <h2 id="trackTitle">Song Title</h2>
+                <p id="trackArtist">Artist Name</p>
+            </div>
+            <p id="trackTime" style="display: block;">0:00</p>
+        </div>
+    </div>
+    <div class="shazam-container">
+        <button class="action-button" style="display: none;">done</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Shazam Clone</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="../js/find.js"></script>
+</body>
+</html>

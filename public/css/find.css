@@ -1,0 +1,199 @@
+/* Global styles */
+body {
+    background-image: linear-gradient(to bottom, #000000, #958E69) !important; /* Gradient from black to earthy greenish */
+    color: #FFB6B9; /* Soft pastel pink for main text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Section */
+header {
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+header h1 {
+    font-size: 40px;
+    color: #FFD700; /* Golden yellow for header */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Navbar styles */
+.navbar {
+    padding: 8px 15px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    display: inline-flex;
+}
+
+.navbar ul li a {
+    color: #FFB6B9;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 8px 16px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #FFD700;
+    transform: scale(1.05);
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    /* background-color: black; */
+}
+
+.search-container input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #FFB6B9; /* Light text for input */
+    width: 220px;
+    transition: background-color 0.3s ease;
+    background-color: black;
+}
+
+.search-container input:focus {
+    background-color: #3A3A3A; /* Darker background when input is focused */
+}
+
+.search-container button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #FFD700; /* Golden yellow button background */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for search button */
+.search-container button:hover {
+    background-color: #D5006D; /* Darker pink on hover */
+}
+
+
+/* Main Content Section */
+.content {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Shazam Button Container */
+.shazam-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.shazam-button-container {
+    margin-bottom: 20px;
+}
+
+.shazam-button {
+    padding: 20px 40px;
+    font-size: 24px;
+    background-color: #FFD700;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.shazam-button:hover {
+    background-color: #D5006D;
+    transform: scale(1.1);
+}
+
+/* Action Button Styling */
+/* Action Button Styling */
+.action-button {
+    padding: 20px 40px;
+    font-size: 24px;
+    background-color: #FFD700; /* Vibrant yellow color */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Circular button */
+    cursor: pointer;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    outline: none;
+    display: none; /* Hidden initially */
+}
+
+/* Hover effect for the button */
+.action-button:hover {
+    background-color: #D5006D; /* Darker pink when hovered */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Focus state */
+.action-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #FFD700; /* Glowing effect on focus */
+}
+
+
+/* Track Info */
+.track-info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.track-info h2 {
+    font-size: 32px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.track-info p {
+    font-size: 20px;
+    color: #B0B0B0;
+}
+
+/* Footer Section */
+footer {
+    padding: 15px 20px;
+    text-align: center;
+    color: #FFB6B9;
+    font-size: 16px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

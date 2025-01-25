@@ -1,0 +1,74 @@
+# version format ex. "0.0.1"
+version: "0.0.3"
+
+# Basic metadata for the agent
+metadata:
+  name: "lyrics-generator"
+  description: "This flow generates original lyrics based on the words provided by the user, avoiding any copyrighted content."
+  author: "coderkrishna"  # Ensure the username matches your account
+  tags: [lyrics, song, music, original]  # Tags for categorization
+  private: false  # Access control for your flows (true/false)
+
+# Define the input variables required
+inputs:
+  input1:
+    type: string  # String format
+    description: "Enter a keyword or theme related to the song (e.g., love, heartache, freedom)."
+    required: true
+    example: "Love, freedom, hope"
+  input2:
+    type: string  # String format
+    description: "Enter a mood or emotion associated with the theme (e.g., joyful, sad, uplifting)."
+    required: true
+    example: "Joyful, melancholic, peaceful"
+  input3:
+    type: string  # String format
+    description: "Enter a setting or situation related to the song (e.g., city, night, beach)."
+    required: true
+    example: "Night, beach, journey"
+  input4:
+    type: string  # String format
+    description: "Enter the type of song you want(eg - raps , happy , emotional etc.)."
+    required: true
+    example: "raps, emotional, happy"
+  input5:
+    type: string  # String format
+    description: "Enter the language of song you want(eg - hindi , english , punjabi etc.)."
+    required: true
+    example: "hindi, english, urdu"
+# LLM configuration
+model:
+  provider: "anthropic"  # Change to the correct provider if needed
+  name: "claude-3.5-sonnet"
+
+# Dataset configuration (Optional)
+# dataset:
+#   source: "author_name/dataset_name"  # Optional, specify a dataset if required
+
+# Prompt template configuration
+prompt: |
+  Generate original and creative lyrics based on the following input:
+  - Theme: {input1}
+  - Mood: {input2}
+  - Setting: {input3}
+  - Song Type: {input4}
+  - Language: {input5}
+
+  The lyrics should be unique and avoid any references to existing songs, artists, or copyrighted content.
+  Ensure that the lyrics are **completely original**, free from any references to existing songs, artists, or copyrighted material.
+  Focus on crafting a new and unique lyrical composition inspired by the provided words.
+
+# ReadME configuration
+readme: |
+  This flow helps you generate original lyrics for a song based on the words you provide. It ensures that the generated lyrics are unique and avoid any references to copyrighted material or specific artists.
+
+  Example usage:
+    - Input1: Love
+    - Input2: Joyful
+    - Input3: Night
+    - Input4: Emotional
+    - Input5: Hindi
+
+  The flow will generate original and creative lyrics based on these inputs.
+  The output will generate a set of unique lyrics centered around these themes without including any existing copyrighted content.
+

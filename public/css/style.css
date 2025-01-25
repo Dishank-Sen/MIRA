@@ -1,0 +1,212 @@
+/* Global styles */
+body {
+    background-image: linear-gradient(to bottom, #000000, #958E69) !important; /* Gradient from black to earthy greenish */
+    color: #FFB6B9; /* Soft pastel pink for main text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Header Section */
+header {
+    padding: 20px 30px; /* More padding for balance */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Softer shadow for a lighter effect */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the header */
+    position: relative;
+}
+
+header h1 {
+    font-size: 36px; /* Increased font size for emphasis */
+    color: #FFD700; /* Golden yellow for header text */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+}
+
+/* Navbar styles */
+.navbar {
+    padding: 12px 20px; /* Slightly larger padding */
+    border-radius: 5px;
+    margin-top: 15px; /* Reduced margin to bring navbar closer to header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark navbar */
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    display: inline-flex;
+}
+
+.navbar ul li a {
+    color: #FFB6B9; /* Soft pastel pink for navbar links */
+    text-decoration: none;
+    font-size: 18px; /* Slightly larger font size for readability */
+    padding: 10px 20px; /* Increased padding for better touch targets */
+    transition: color 0.3s ease, transform 0.3s ease, border 0.3s ease; /* Added smooth transition */
+    border-radius: 4px; /* Rounded corners on navbar links */
+}
+
+/* Hover effect for navbar links */
+.navbar ul li a:hover {
+    color: #FFD700; /* Golden yellow when hovered */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    border-bottom: 2px solid #FFD700; /* Subtle underline effect */
+}
+
+/* Search bar style */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-container input {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #FFB6B9;
+    margin-right: 15px;
+    font-size: 16px;
+    color: #FFB6B9; /* Light text for input */
+    background-color: #333333;
+    width: 240px;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+/* Focus effect for search input */
+.search-container input:focus {
+    background-color: #444444;
+    border-color: #FFD700; /* Golden border on focus */
+}
+
+.search-container button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #FFD700; /* Golden yellow button background */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for search button */
+.search-container button:hover {
+    background-color: #D5006D; /* Darker pink on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Main Content Section */
+.content {
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px; /* Added gap between content sections */
+}
+
+/* Info Container */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.info-item {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 12px;
+    flex: 1;
+    max-width: 48%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Soft shadow around info items */
+}
+
+.info-item h2 {
+    color: #FFD700; /* Golden yellow for titles */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    font-size: 18px;
+    color: #B0B0B0; /* Softer text color for paragraphs */
+}
+
+/* Music Player */
+.music-player {
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease-in-out;
+    background-color: #222222; /* Dark background for the music player */
+}
+
+/* Hover effect for music player */
+.music-player:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.music-player audio {
+    width: 100%;
+    border-radius: 10px;
+    background: #333333; /* Slightly lighter background for audio control */
+    outline: none;
+    border: 2px solid #FFD700; /* Golden yellow border around audio controls */
+}
+
+/* Track Info */
+.track-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.track-info h2 {
+    font-size: 28px;
+    color: #FFD700; /* Golden yellow for track titles */
+    margin-bottom: 10px;
+}
+
+.track-info p {
+    font-size: 20px;
+    color: #B0B0B0;
+}
+
+/* Footer Section */
+footer {
+    padding: 20px 30px;
+    text-align: center;
+    color: #FFB6B9;
+    font-size: 16px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #333333; /* Dark footer background */
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #FFB6B9; /* Soft pastel pink */
+}

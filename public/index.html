@@ -1,15 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audio Recorder</title>
-  <script src="./js/app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music Page</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <h1>Audio Recorder</h1>
-  <button id="start-btn">Start Recording</button>
-  <button id="stop-btn" disabled>Stop Recording</button>
-  <audio id="audio-playback" controls></audio>
+    <header>
+        <div><img src="./assets/logo1.jpg" alt="logo" style="height: 100px; width: 100px;"></div>
+
+        <!-- Navigation bar below the header -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./html/find.html">Find</a></li>
+                <li><a href="./html/content.html">Content</a></li>
+                <li class="search-container">
+                    <form id="searchForm">
+                        <input type="text" placeholder="Search..." id="search-bar">
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <div class="content">
+        <div class="info-container">
+            <!-- Display useful text as per your request -->
+            <div class="info-item">
+                <h2>Finding the Songs If You Play It</h2>
+                <p>
+                    The Shazam-like feature allows you to play any music around you, and our app will listen to the sound, analyze it, and identify the song for you. 
+                    With just a tap on the "Shazam" button, the app will start recognizing the music playing in your environment and will display the song title, 
+                    artist, and album (if available). This feature is extremely useful when you hear a song on the radio, in a café, or anywhere else, and you can’t quite figure out its name or artist.
+                </p>
+            </div>
+            
+            <div class="info-item">
+                <h2>Searching Songs Based on Your Input</h2>
+                <p>
+                    If you already know the name of the song or the artist, you can quickly search for it by typing keywords into the search bar above. 
+                    The app will provide a list of songs, albums, and artists that match your query. Whether you want to find a specific track or explore 
+                    music from your favorite artists, the search bar is a quick way to navigate through the music database and find the exact content you're looking for. 
+                    Suggestions will be provided as you type, making the process seamless and fast. This is perfect for discovering new music based on your preferences or finding that specific song you love.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Music Page. All rights reserved.</p>
+    </footer>
+
+    <script src="./js/brain.js"></script>
 </body>
 </html>

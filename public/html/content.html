@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Info Input</title>
+    <link rel="stylesheet" href="../css/content.css">
+    <style>
+        .loading-icon {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SHAZAM</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./html/find.html">Find</a></li>
+                <li><a href="./html/content.html">Content</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h2>Enter Song Information</h2>
+
+        <!-- Song Info Form -->
+        <form id="info">
+            <div id="form-container" class="form-container">
+                <div class="input-container">
+                    <label for="word1">Song Word 1 (Related to song):</label>
+                    <input type="text" id="word1" placeholder="Enter word related to song" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="word2">Song Word 2 (Related to song):</label>
+                    <input type="text" id="word2" placeholder="Enter word related to song" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="word3">Song Word 3 (Related to song):</label>
+                    <input type="text" id="word3" placeholder="Enter word related to song" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="songType">Type of Song (Genre):</label>
+                    <input type="text" id="songType" placeholder="Enter song genre" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="language">Language:</label>
+                    <select id="language" required>
+                        <option value="English" selected>English</option>
+                    </select>
+                </div>
+
+                <input type="submit" value="Submit" id="submit">
+            </div>
+        </form>
+
+        <!-- Loading Icon -->
+        <div class="loading-icon" id="loading-icon">
+            <img src="https://app.lottiefiles.com/animation/a5f3d13c-a17c-459e-8d26-59e6c7f8a24d" alt="Loading..." width="50">
+        </div>
+
+        <!-- Section to display the result -->
+        <pre class="result" id="result">
+            <!-- The data will be displayed here after the response -->
+        </pre>
+    </div>
+
+    <script src="../js/content.js"></script>
+</body>
+</html>

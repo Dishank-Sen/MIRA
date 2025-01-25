@@ -1,0 +1,229 @@
+/* Global Styles */
+body {
+    background-image: linear-gradient(to bottom, #000000, #958E69) !important; /* Gradient from black to earthy greenish */
+    color: #FFB6B9; /* Soft pastel pink for main text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Header Section */
+header {
+    padding: 30px 40px; /* Increased padding for balance */
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Softer shadow for a lighter effect */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the header */
+    position: relative;
+}
+
+header h1 {
+    font-size: 42px; /* Increased font size for emphasis */
+    color: #FFD700; /* Golden yellow for header text */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding-bottom: 12px;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 15px 25px; /* Slightly larger padding */
+    border-radius: 5px;
+    margin-top: 20px; /* Reduced margin to bring navbar closer to header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark navbar */
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    display: inline-flex;
+}
+
+.navbar ul li a {
+    color: #FFB6B9; /* Soft pastel pink for navbar links */
+    text-decoration: none;
+    font-size: 20px; /* Slightly larger font size for readability */
+    padding: 12px 25px; /* Increased padding for better touch targets */
+    transition: color 0.3s ease, transform 0.3s ease, border 0.3s ease; /* Added smooth transition */
+    border-radius: 4px; /* Rounded corners on navbar links */
+}
+
+/* Hover effect for navbar links */
+.navbar ul li a:hover {
+    color: #FFD700; /* Golden yellow when hovered */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    border-bottom: 3px solid #FFD700; /* Subtle underline effect */
+}
+
+/* Form Section */
+.form-container {
+    width: 100%;
+    max-width: 550px; /* Increased max-width for more space */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center; /* Center the items inside the form */
+}
+
+/* Textbox Styles */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-container label {
+    color: #FFD700; /* Golden yellow for labels */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.input-container input,
+.input-container select {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 2px solid #FFB6B9;
+    background-color: #333333;
+    color: #FFB6B9;
+    font-size: 18px;
+    width: 100%; /* Ensures the input field fits inside the container */
+    max-width: 100%; /* Ensures no input exceeds container width */
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+/* Focus effect for textboxes */
+.input-container input:focus,
+.input-container select:focus {
+    background-color: #444444;
+    border-color: #FFD700; /* Golden border on focus */
+}
+
+/* Done Button Style */
+.done-button {
+    padding: 10px 20px; /* Reduced padding to fit better */
+    border-radius: 10px;
+    background-color: #FFD700; /* Golden yellow button background */
+    color: white;
+    border: none;
+    font-size: 18px; /* Slightly reduced font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: center; /* Center the button */
+}
+
+/* Hover effect for done button */
+.done-button:hover {
+    background-color: #D5006D; /* Darker pink on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Section to display the result */
+.result {
+    text-align: center;
+    color: #FFD700;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    margin-top: 30px;
+}
+h2{
+    text-align: center;
+}
+
+/* Media Queries (Responsiveness) */
+
+/* For larger tablets or small laptops (1024px) */
+@media (max-width: 1024px) {
+    .navbar ul {
+        gap: 20px;
+    }
+
+    .navbar ul li a {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    .form-container {
+        padding: 30px;
+    }
+
+    .input-container input,
+    .input-container select {
+        font-size: 16px;
+    }
+
+    .done-button {
+        font-size: 16px;
+        padding: 8px 18px;
+    }
+}
+
+/* For mobile devices (768px) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 30px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-container {
+        padding: 25px;
+    }
+
+    .input-container input,
+    .input-container select {
+        font-size: 16px;
+    }
+
+    .done-button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+/* For very small mobile devices (480px) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    .navbar ul {
+        gap: 10px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .input-container input,
+    .input-container select {
+        font-size: 14px;
+    }
+
+    .done-button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}

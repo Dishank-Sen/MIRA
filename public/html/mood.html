@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shazam Clone</title>
+    <link rel="stylesheet" href="../css/mood.css">
+</head>
+<body>
+    <header>
+        <h1>MIRIFY</h1>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./find.html">Find</a></li>
+        </ul>
+        <div class="search-container">
+            <input type="text" placeholder="Search..." id="search-bar">
+            <button type="button" onclick="searchSong()">Search</button>
+        </div>
+    </nav>
+
+    <!-- Mood Search Form -->
+    <div class="form-container">
+        <h2>Find Music Based on Mood, Singer, and Language</h2>
+        
+        <form id="moodForm">
+        <div class="input-container">
+            <label for="mood">Mood:</label>
+            <textarea id="mood" placeholder="Enter your mood" rows="3" required></textarea>
+        </div>
+            <div class="input-container">
+                <label for="singer">Singer:</label>
+                <textarea id="singer" placeholder="Enter Singer Name" required></textarea>
+            </div>
+    
+            <div class="input-container">
+                <label for="language">Language:</label>
+                <input type="text" id="language" placeholder="Enter language" required></input>
+            </div>
+    
+            <input type="submit" value="Find Music" id="submit">
+        </form>
+        
+
+        <!-- Results Section -->
+        <div id="results" class="result" style="display: none;">
+            <h3>Results:</h3>
+            
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Shazam Clone</p>
+    </footer>
+
+    <script src="../js/mood.js"></script>
+</body>
+</html>

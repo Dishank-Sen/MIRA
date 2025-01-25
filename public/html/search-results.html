@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Search Results</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./find.html">Find</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h2>Results for: <span id="search-query"></span></h2>
+        <div class="info-container" id="search-results">
+            <!-- Search results will be displayed here -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Music Page. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to extract the query parameter from the URL
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Display search query and results
+        const query = getQueryParameter('query');
+        const searchQueryElement = document.getElementById('search-query');
+        const searchResultsElement = document.getElementById('search-results');
+
+        // Display the query in the results page
+        searchQueryElement.textContent = query;
+
+        // Simulated search results (You can replace this with actual results fetching logic)
+        if (query) {
+            // You can add an API call to get actual search results based on `query`
+            searchResultsElement.innerHTML = `
+                <h3>Example Results:</h3>
+                
+            `;
+        } else {
+            searchResultsElement.innerHTML = '<p>No search term provided.</p>';
+        }
+    </script>
+
+    <script src="../js/search-result.js"></script>
+</body>
+</html>

@@ -5,62 +5,108 @@ const fs = require('fs');
 const { identifyAudio } = require('./services/acrCloudService'); // Import ACRCloud identification function
 const app = express();
 const port = 3000;
+const { execFile } = require('child_process');
+const cors = require('cors')
 
+
+app.use(cors());
 app.use(express.static('public'));
-
-// Set up Multer for file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './uploads'); // Store uploaded files in the "uploads" directory
-  },
-  filename: (req, file, cb) => {
-    const uniqueName = `${Date.now()}-${file.originalname}`;
-    cb(null, uniqueName); // Assign a unique filename for each uploaded file
-  },
-});
-
-const upload = multer({ storage });
+app.use(express.json()); // Middleware to parse JSON requests
 
 // Serve the index page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Handle audio file upload and identification
-app.post('/upload-audio', upload.single('audio'), async (req, res) => {
+app.get('/send', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html/mood.html'));
+});
+
+app.post('/api/search', (req, res) => {
+
   try {
-    if (!req.file) {
-      return res.status(400).send('No file uploaded.');
+        const { song } = req.body;
+        if (!song) {
+          return res.status(400).json({ message: 'Song is required!' });
+        }
+        console.log(song);
+        const pythonScriptPath = path.join(__dirname, 'server.py');
+        execFile('python', [pythonScriptPath, song], (error, stdout, stderr) => {
+          if (error) {
+              console.error('Error executing Python script:', error);
+              res.status(201).json({ message: `Your song is not: ${song}` });
+          }
+      
+          if (stderr) {
+              console.error('Python script error:', stderr);
+              res.status(201).json({ message: `Your song is not : ${song}` });
+          }
+          console.log('Python script output:', stdout);
+        res.status(201).json({ message: `${stdout}` });
+    } 
+)}catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
     }
+});
 
-    console.log('Uploaded file:', req.file);
+app.post('/api/lyrics', (req, res) => {
+    try {
+        console.log(req.body);
+        const { word1, word2, word3, songType, language } = req.body;
+        if (!word1 || !word2 || !word3 || !songType) {
+            return res.status(400).json({ message: 'All fields are mandatory!' });
+        }
+        console.log(word1, word2, word3, songType, language);
+        const pythonScriptPath = path.join(__dirname, 'lyrics_generator.py');
+        execFile('python', [pythonScriptPath, word1, word2, word3, songType, language], (error, stdout, stderr) => {
+            if (error) {
+                console.error('Error executing Python script:', error);
+                res.status(500).json({ message: 'Server error' });
+            }
 
-    const audioPath = path.join(__dirname, req.file.path);
-    const audioBuffer = fs.readFileSync(audioPath);
+            if (stderr) {
+                console.error('Python script error:', stderr);
+                res.status(500).json({ message: 'Server error' });
+            }
 
-    // Directly send the audio to the ACRCloud API for identification
-    const result = await identifyAudio(audioBuffer);
-
-    if (!result || result.status.code !== 0) {
-      return res.status(400).send('No audio identified or an error occurred.');
+            console.log('Python script output:', stdout);
+            res.status(201).json({ message: `${stdout}` });
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
     }
+});
 
-    console.log('Identified result:', result);
+app.post('/api/mood', cors() , (req,res) => {
+    try {
+        const { mood,singer, language } = req.body;
+        if (!mood || !singer || !language) {
+            return res.status(400).json({ message: 'All fields are mandatory!' });
+        }
+        console.log(mood,singer, language);
+        const pythonScriptPath = path.join(__dirname, 'mood.py');
+        execFile('python', [pythonScriptPath, mood,singer, language], (error, stdout, stderr) => {
+            if (error) {
+                console.error('Error executing Python script:', error);
+                res.status(500).json({ message: 'Server error' });
+            }
 
-    // Clean up: Remove the uploaded file after processing
-    fs.promises.unlink(audioPath)
-      .then(() => console.log('File deleted successfully'))
-      .catch((err) => console.error('Error deleting file:', err));
+            if (stderr) {
+                console.error('Python script error:', stderr);
+                res.status(500).json({ message: 'Server error' });
+            }
 
-    // Send the identification result as the response
-    res.json(result);
-
-  } catch (err) {
-    console.error('Error identifying audio:', err);
-    res.status(500).send('Error processing the audio file.');
-  }
+            console.log('Python script output:', stdout);
+            res.status(201).json({ message: `${stdout}` });
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
+    }
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on http://localhost:${port}`);
 });
