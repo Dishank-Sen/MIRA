@@ -8,21 +8,25 @@
     <link rel="stylesheet" href="../css/find.css">
 </head>
 <body>
-
     <header>
-        <h1>Shazam</h1>
-    </header>
+        <div><img src="../assets/logo1.jpg" alt="logo" style="height: 100px; width: 100px;"></div>
 
-    <nav class="navbar">
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-                <li><a href="../find.html">Find</a></li>
+        <!-- Navigation bar below the header -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/find">Find</a></li>
+                <li><a href="/content">Content</a></li>
+                <li><a href="/mood">Your Mood</a></li>
                 <li class="search-container">
-                    <input type="text" placeholder="Search..." id="search-bar">
-                    <button type="submit">Search</button>
+                    <form id="searchForm">
+                        <input type="text" placeholder="Search..." id="search-bar">
+                        <button type="submit">Search</button>
+                    </form>
                 </li>
-        </ul>
-    </nav>
+            </ul>
+        </nav>
+    </header>
 
     <div class="content">
         <div class="shazam-container">
@@ -32,23 +36,32 @@
                 </button>
             </div>
 
+            <!-- GIF Display During Recording -->
+            <div id="gifContainer" style="display: none;">
+                <img src="../assets/load-unscreen.gif" alt="Recording..." id="recordingGif">
+            </div>
+
             <!-- Track Info Display -->
-            <div class="track-info" style="display: none;">
+            <div class="track-info" id="trackInfo" style="display: none;">
                 <h2 id="trackTitle">Song Title</h2>
                 <p id="trackArtist">Artist Name</p>
             </div>
-            <p id="trackTime" style="display: block;">0:00</p>
+
+            <p id="trackTime" style="display: block;">Listening...</p>
         </div>
-    </div>
-    <div class="shazam-container">
-        <button class="action-button" style="display: none;">done</button>
+
+        <!-- Audio Player -->
+        <div id="audioPlayer" style="display: none;">
+            <audio id="audio" controls>
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Shazam Clone</p>
+        <p>©️ 2025 Mirify. All rights reserved.</p>
     </footer>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../js/find.js"></script>
 </body>
 </html>

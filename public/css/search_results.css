@@ -14,38 +14,96 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 15px 0;
+    display: flex;
+    align-items: center; /* Aligns the logo and navbar in a single row */
+    justify-content: space-between; /* Space between logo and navbar */
+    padding: 20px 40px; /* Adjusted padding */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the header */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Softer shadow for a lighter effect */
 }
 
+/* Logo Styles */
+header img {
+    height: 80px; /* Adjusted the logo size */
+    width: 80px;
+}
+
+/* Navbar Styles */
 .navbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+    align-items: center; /* Aligns the navbar items vertically */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark navbar */
+    border-radius: 5px;
+    padding: 15px 25px; /* Added padding */
 }
 
-.navbar .logo a {
-    font-size: 24px;
-    color: #fff;
-    text-decoration: none;
-}
-
-nav ul {
+.navbar ul {
     display: flex;
-    gap: 20px;
+    justify-content: space-around;
+    gap: 35px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-nav ul li a {
-    color: #fff;
+.navbar ul li {
+    display: inline-flex;
+}
+
+.navbar ul li a {
+    color: #FFB6B9; /* Soft pastel pink for navbar links */
     text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s;
+    font-size: 20px; /* Slightly larger font size for readability */
+    padding: 12px 25px; /* Increased padding for better touch targets */
+    transition: color 0.3s ease, transform 0.3s ease, border 0.3s ease; /* Added smooth transition */
+    border-radius: 4px; /* Rounded corners on navbar links */
 }
 
-nav ul li a:hover {
-    color: #ff6f61;
+/* Hover effect for navbar links */
+.navbar ul li a:hover {
+    color: #FFD700; /* Golden yellow when hovered */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    border-bottom: 3px solid #FFD700; /* Subtle underline effect */
+}
+
+/* Search Bar */
+.search-container form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 8px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #FFB6B9;
+    /* background-color: #333333; */
+    color: #FFB6B9;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #D5006D; /* Darker pink on hover */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FFB6B9;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    margin-top: 20px;
 }
 
 /* Main Content Styling */
@@ -92,20 +150,6 @@ nav ul li a:hover {
     color: #333;
 }
 
-/* Footer Styling */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    font-size: 16px;
-}
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {

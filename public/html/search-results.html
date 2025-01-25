@@ -9,24 +9,44 @@
 </head>
 <body>
     <header>
-        <h1>Search Results</h1>
+        <div><img src="../assets/logo1.jpg" alt="logo" style="height: 100px; width: 100px;"></div>
+
+        <!-- Navigation bar below the header -->
         <nav class="navbar">
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="./find.html">Find</a></li>
+                <li><a href="/">Home</a></li>
+                <!-- <li><a href="/find">Find</a></li> -->
+                <li><a href="/content">Content</a></li>
+                <li><a href="/mood">Your Mood</a></li>
+                <li class="search-container">
+                    <form id="searchForm">
+                        <input type="text" placeholder="Search..." id="search-bar">
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </header>
-
-    <div class="content">
-        <h2>Results for: <span id="search-query"></span></h2>
+    <div class="content" style=" align-items: center;justify-items: center;">
+        <h2 style="align-content: center;">Results for: <span id="search-query"></span></h2>
         <div class="info-container" id="search-results">
             <!-- Search results will be displayed here -->
         </div>
     </div>
-
+    
+    <div style="
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-top: 50px;" id="loading">
+    <img src="../assets/loading.gif" alt="loading..." />
+</div>
     <footer>
-        <p>© 2025 Music Page. All rights reserved.</p>
+        <p>©️ 2025 Mirify. All rights reserved.</p>
     </footer>
 
     <script>
@@ -47,12 +67,10 @@
         // Simulated search results (You can replace this with actual results fetching logic)
         if (query) {
             // You can add an API call to get actual search results based on `query`
-            searchResultsElement.innerHTML = `
-                <h3>Example Results:</h3>
-                
-            `;
+            searchResultsElement.innerHTML = `<h3>Example Results:</h3>`
         } else {
-            searchResultsElement.innerHTML = '<p>No search term provided.</p>';
+            // searchResultsElement.innerHTML = '<p>No search term provided.</p>';
+            console.log("no search term provided")
         }
     </script>
 

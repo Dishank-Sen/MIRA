@@ -1,0 +1,78 @@
+# Versioning of the flow
+version: "0.0.2"
+
+# Basic metadata for the agent
+metadata:
+  name: "theory-generator" # Name of the flow or agent
+  description: "This flow helps you explore the theory behind your favorite song or artist. It provides insights on the meaning, lyrics, and history related to the topic of interest."
+  author: "coderkrishna" # Username of the author, it should match your account username.
+  tags: [song, artist, theory, lyrics, meaning, music, history] # Tags help categorize the flow. Include all relevant keywords to help users find the flow.
+  private: false # This determines if the flow is public or private. Set to 'false' for public, 'true' for private.
+
+# Define the input variables required
+inputs:
+  topic:
+    type: string # Currently, we only support string inputs.
+    description: "Enter the topic you want to learn about. It could be a song name, an artist's name, or a specific music genre."
+    required: true # This field must be filled by the user.
+    example: "song: 'Shape of You', artist: 'Ed Sheeran', genre: 'Pop'" 
+    # Example could be "song: 'Shape of You'", "artist: 'Ed Sheeran'", or "genre: 'Rock'."
+
+# LLM Configuration
+model:
+  provider: "anthropic" # Specify the LLM provider. For example: anthropic, openai, meta, etc.
+  name: "claude-3.5-sonnet" # The specific LLM model name to be used.
+
+# For supported LLM models, refer to the documentation: https://docs.mira.network/sdk/core-concepts
+
+# Dataset configuration (Optional)
+# dataset:
+#   source: "author_name/dataset_name" # Optional: If you want to provide a custom dataset for the model, you can specify its source.
+
+# Prompt template configuration
+prompt: |
+  You are a music expert. Please provide detailed theory, background, and meaning for the following topic: {topic}.
+  - If the topic is a **song**, give information about the song's lyrics, release date, artist, its meaning, and any significant background (e.g., how the song was written, the genre, impact on music).
+  - If the topic is an **artist**, give a brief biography, their musical style, popular songs, and their influence on the music industry.
+  - If the topic is a **genre**, explain its origins, key characteristics, famous artists or songs from that genre, and its cultural significance.
+
+# ReadMe Configuration (for user understanding)
+readme: |
+  ## Theory Generator
+  This flow provides deep insights into a song, artist, or music genre. It gives a comprehensive explanation about the selected topic, including:
+  - **Song**: The meaning of lyrics, background of the song, the artist’s intention, release information, and impact.
+  - **Artist**: A biography of the artist, their style of music, popular songs, career highlights, and their influence in the music industry.
+  - **Music Genre**: An overview of the genre, its origins, famous artists or songs, and how it shaped music.
+
+  ### Examples of valid inputs:
+  1. **Song**: "Shape of You" by Ed Sheeran
+     - Enter the topic as: `song: 'Shape of You'`
+     - Expected Output: Details about the song, including the artist, lyrics breakdown, release date, and cultural impact.
+  
+  2. **Artist**: "Ed Sheeran"
+     - Enter the topic as: `artist: 'Ed Sheeran'`
+     - Expected Output: A brief biography of Ed Sheeran, his popular songs, his musical style, and his contributions to the music industry.
+
+  3. **Music Genre**: "Pop"
+     - Enter the topic as: `genre: 'Pop'`
+     - Expected Output: A detailed explanation of the Pop genre, including its origins, key characteristics, notable artists, and songs that defined it.
+
+  ### How to Use:
+  - Simply provide the name of a **song**, **artist**, or **genre** as your input. 
+  - Based on the input, the flow will return relevant theory, background, and details about the topic.
+
+  ### Why this flow is useful:
+  - Perfect for music enthusiasts who want to dive deeper into their favorite songs, artists, or genres.
+  - Ideal for educational purposes or music-related research.
+  - Helps users understand the meanings behind lyrics, the history of music, and the context of musical trends.
+
+  ### Notes:
+  - The flow requires a **specific topic**. Make sure to specify the topic clearly (e.g., `song: 'Shape of You'`, `artist: 'Ed Sheeran'`, or `genre: 'Pop'`).
+  - It works best with proper nouns like song titles or artist names.
+  - If the topic is too broad (e.g., just 'song' or 'artist'), the result might not be as detailed.
+
+  ## Contact Information:
+  If you have any questions or need further assistance, feel free to reach out to the author: [coderkrishna](https://your-profile-link).
+
+  ### Credits:
+  - Flow created by coderkrishna

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const song = urlParams.get('song');
   console.log(song);
-
+  const loading = document.getElementById('loading');
   if (song) {
       // Display the searched song name
       document.getElementById('search-query').textContent = song;
@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
           if (response.ok) {
               const data = await response.json();
+              loading.style.display = 'none';
               console.log(data);
 
               let songs = data.message.split('\r\n');

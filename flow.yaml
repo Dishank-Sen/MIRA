@@ -37,7 +37,7 @@ prompt: |
   Given the topic "{topic}", suggest relevant songs and provide their artists. If the artist is not provided, suggest songs related to the topic "{topic}" and their artists.
 
   Example input for topic: "Love, romantic"
-  Example output: "Song: 'Perfect', Artist: Ed Sheeran, Song: 'Shape of You', Artist: Ed Sheeran."
+  Example output: "Song: 'Perfect', Artist: Ed Sheeran, Song: 'Shape of You', Artist: Ed Sheeran.,Song: 'Tauba Tauba', Artist:Karan Aujla"
 
 # ReadMe configuration
 readme: |

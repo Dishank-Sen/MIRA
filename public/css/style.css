@@ -1,4 +1,4 @@
-/* Global styles */
+/* Global Styles */
 body {
     background-image: linear-gradient(to bottom, #000000, #958E69) !important; /* Gradient from black to earthy greenish */
     color: #FFB6B9; /* Soft pastel pink for main text */
@@ -13,37 +13,33 @@ body {
 
 /* Header Section */
 header {
-    padding: 20px 30px; /* More padding for balance */
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Softer shadow for a lighter effect */
-    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the header */
-    position: relative;
-}
-
-header h1 {
-    font-size: 36px; /* Increased font size for emphasis */
-    color: #FFD700; /* Golden yellow for header text */
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding-bottom: 10px;
-}
-
-/* Navbar styles */
-.navbar {
-    padding: 12px 20px; /* Slightly larger padding */
-    border-radius: 5px;
-    margin-top: 15px; /* Reduced margin to bring navbar closer to header */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: center; /* Aligns the logo and navbar in a single row */
+    justify-content: space-between; /* Space between logo and navbar */
+    padding: 20px 40px; /* Adjusted padding */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the header */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Softer shadow for a lighter effect */
+}
+
+/* Logo Styles */
+header img {
+    height: 80px; /* Adjusted the logo size */
+    width: 80px;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center; /* Aligns the navbar items vertically */
     background-color: rgba(0, 0, 0, 0.8); /* Dark navbar */
+    border-radius: 5px;
+    padding: 15px 25px; /* Added padding */
 }
 
 .navbar ul {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-around;
+    gap: 35px;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -56,8 +52,8 @@ header h1 {
 .navbar ul li a {
     color: #FFB6B9; /* Soft pastel pink for navbar links */
     text-decoration: none;
-    font-size: 18px; /* Slightly larger font size for readability */
-    padding: 10px 20px; /* Increased padding for better touch targets */
+    font-size: 20px; /* Slightly larger font size for readability */
+    padding: 12px 25px; /* Increased padding for better touch targets */
     transition: color 0.3s ease, transform 0.3s ease, border 0.3s ease; /* Added smooth transition */
     border-radius: 4px; /* Rounded corners on navbar links */
 }
@@ -65,148 +61,196 @@ header h1 {
 /* Hover effect for navbar links */
 .navbar ul li a:hover {
     color: #FFD700; /* Golden yellow when hovered */
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    border-bottom: 2px solid #FFD700; /* Subtle underline effect */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    border-bottom: 3px solid #FFD700; /* Subtle underline effect */
 }
 
-/* Search bar style */
-.search-container {
+/* Search Bar */
+.search-container form {
     display: flex;
+    gap: 10px;
     align-items: center;
-    justify-content: center;
-    margin-top: 20px;
 }
 
 .search-container input {
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: 2px solid #FFB6B9;
-    margin-right: 15px;
+    padding: 8px 15px;
     font-size: 16px;
-    color: #FFB6B9; /* Light text for input */
-    background-color: #333333;
-    width: 240px;
-    transition: background-color 0.3s ease, border 0.3s ease;
-}
-
-/* Focus effect for search input */
-.search-container input:focus {
-    background-color: #444444;
-    border-color: #FFD700; /* Golden border on focus */
+    border-radius: 5px;
+    border: 1px solid #FFB6B9;
+    /* background-color: #333333; */
+    color: #FFB6B9;
 }
 
 .search-container button {
     padding: 10px 20px;
-    border-radius: 8px;
-    background-color: #FFD700; /* Golden yellow button background */
-    color: white;
+    background-color: #FFD700;
     border: none;
-    cursor: pointer;
+    border-radius: 5px;
+    color: white;
     font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Hover effect for search button */
 .search-container button:hover {
     background-color: #D5006D; /* Darker pink on hover */
-    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
-/* Main Content Section */
+/* Content Section */
 .content {
-    padding: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 30px; /* Added gap between content sections */
+    padding: 40px 20px;
+    /* background-color: rgba(0, 0, 0, 0.7); Keep gradient background here */
+    color: #FFD700;
+    flex-grow: 1;
 }
 
-/* Info Container */
+/* Container for info items */
 .info-container {
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 40px;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 30px; /* Space between the info items */
+    justify-content: space-between; /* Space out the items */
+    /* background-color: #333333; Solid background color for info-container */
+    border-radius: 8px; /* Optional: Round corners for the info container */
+    padding: 20px;
 }
 
+/* Info Item Styling */
 .info-item {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 25px;
-    border-radius: 12px;
-    flex: 1;
-    max-width: 48%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Soft shadow around info items */
+    flex: 1 1 45%; /* Allow each item to take up 45% of the container width */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .info-item h2 {
-    color: #FFD700; /* Golden yellow for titles */
     font-size: 24px;
-    margin-bottom: 10px;
+    color: #FFD700;
 }
 
 .info-item p {
-    font-size: 18px;
-    color: #B0B0B0; /* Softer text color for paragraphs */
+    font-size: 16px;
+    line-height: 1.6;
 }
 
-/* Music Player */
-.music-player {
-    padding: 25px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.7);
-    transition: transform 0.3s ease-in-out;
-    background-color: #222222; /* Dark background for the music player */
+/* Container for paragraphs */
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%; /* Ensure it takes up full height */
 }
 
-/* Hover effect for music player */
-.music-player:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-}
-
-.music-player audio {
-    width: 100%;
-    border-radius: 10px;
-    background: #333333; /* Slightly lighter background for audio control */
-    outline: none;
-    border: 2px solid #FFD700; /* Golden yellow border around audio controls */
-}
-
-/* Track Info */
-.track-info {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.track-info h2 {
-    font-size: 28px;
-    color: #FFD700; /* Golden yellow for track titles */
-    margin-bottom: 10px;
-}
-
-.track-info p {
-    font-size: 20px;
-    color: #B0B0B0;
+/* Styling for paragraphs */
+.text-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Add shadow to both paragraphs */
+    background-color: #333333; /* Background color for text box */
+    color: #FFB6B9; /* Soft pastel pink text */
 }
 
 /* Footer Section */
 footer {
-    padding: 20px 30px;
-    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
     color: #FFB6B9;
-    font-size: 16px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    background-color: #333333; /* Dark footer background */
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    margin-top: 20px;
 }
 
-footer p {
-    margin: 0;
-    font-size: 14px;
-    color: #FFB6B9; /* Soft pastel pink */
+/* Media Queries (Responsiveness) */
+
+/* For larger tablets or small laptops (1024px) */
+@media (max-width: 1024px) {
+    .info-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center the items */
+    }
+
+    .info-item {
+        flex: 1 1 80%; /* Allow each item to take up more space on smaller screens */
+    }
+
+    .text-container p {
+        width: 90%; /* Adjust the paragraph width on smaller screens */
+    }
+}
+
+/* For mobile devices (768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-container form {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .info-item h2 {
+        font-size: 20px;
+    }
+
+    .info-item p {
+        font-size: 14px;
+    }
+}
+
+/* For very small mobile devices (480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+    }
+
+    header img {
+        height: 60px;
+        width: 60px;
+    }
+
+    .navbar ul {
+        gap: 10px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .search-container input {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .search-container button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .info-item h2 {
+        font-size: 18px;
+    }
+
+    .info-item p {
+        font-size: 12px;
+    }
 }

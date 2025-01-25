@@ -9,21 +9,36 @@
 </head>
 <body>
     <header>
-        <h1>MIRIFY</h1>
+        <div><img src="../assets/logo1.jpg" alt="logo" style="height: 100px; width: 100px;"></div>
+
+        <!-- Navigation bar below the header -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <!-- <li><a href="/find">Find</a></li> -->
+                <li><a href="/content">Content</a></li>
+                <li><a href="/mood">Your Mood</a></li>
+                <li class="search-container">
+                    <form id="searchForm">
+                        <input type="text" placeholder="Search..." id="search-bar">
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
     </header>
-
-    <nav class="navbar">
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="./find.html">Find</a></li>
-        </ul>
-        <div class="search-container">
-            <input type="text" placeholder="Search..." id="search-bar">
-            <button type="button" onclick="searchSong()">Search</button>
-        </div>
-    </nav>
-
     <!-- Mood Search Form -->
+    <div style="
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-top: 50px; display: none;" id="loading">
+    <img src="../assets/loading.gif" alt="loading..." />
+    </div>
     <div class="form-container">
         <h2>Find Music Based on Mood, Singer, and Language</h2>
         
@@ -44,7 +59,6 @@
     
             <input type="submit" value="Find Music" id="submit">
         </form>
-        
 
         <!-- Results Section -->
         <div id="results" class="result" style="display: none;">
@@ -54,7 +68,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Shazam Clone</p>
+        <p>©️ 2025 Mirify. All rights reserved.</p>
     </footer>
 
     <script src="../js/mood.js"></script>

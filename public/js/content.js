@@ -1,13 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Add event listener for the form submission
-    document.getElementById('info').addEventListener('submit', async (e) => {
-        e.preventDefault();
+    const loadingIcon = document.getElementById('loading');
+    loadingIcon.style.display = 'none';
+        document.getElementById('searchForm').addEventListener('submit', async (e) => {
+            e.preventDefault()
+            let song = document.getElementById('search-bar').value
+            console.log(song)
+            if (song) {
+                // Redirect to the results page with the song name as a query parameter
+                window.location.href = `../html/search-results.html?song=${encodeURIComponent(song)}`;
+            }
+        });
 
+        document.getElementById('info').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        console.log(loadingIcon)
+        loadingIcon.style.display = 'block';
+        console.log("Loading done")
         // Get form elements and result container
         const result = document.getElementById('result');
         const form = document.getElementById('info');
         const submitButton = document.getElementById('submit');
-        const loadingIcon = document.getElementById('loading-icon');
+        
 
         const word1 = document.getElementById("word1").value;
         const word2 = document.getElementById("word2").value;
@@ -17,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Disable form and show loading icon
         form.classList.add('disabled');
-        loadingIcon.style.display = 'block';
 
         try {
             const response = await fetch('../api/lyrics', {
@@ -30,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 const data = await response.json();
-
+                loadingIcon.style.display = 'none';
                 // console.log(data.message);
                 let check = data.message.replace(/'result'/g, `"result"`);
                 // console.log(check);

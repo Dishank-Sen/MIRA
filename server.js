@@ -12,14 +12,23 @@ const cors = require('cors')
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json()); // Middleware to parse JSON requests
+const upload = multer({ dest: 'uploads/' });
 
 // Serve the index page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/send', (req, res) => {
+app.get('/mood', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html/mood.html'));
+});
+
+app.get('/find', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html/find.html'));
+});
+
+app.get('/content', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html/content.html'));
 });
 
 app.post('/api/search', (req, res) => {
@@ -34,12 +43,12 @@ app.post('/api/search', (req, res) => {
         execFile('python', [pythonScriptPath, song], (error, stdout, stderr) => {
           if (error) {
               console.error('Error executing Python script:', error);
-              res.status(201).json({ message: `Your song is not: ${song}` });
+              res.status(201).json({ message: `Can't find ${song}` });
           }
       
           if (stderr) {
               console.error('Python script error:', stderr);
-              res.status(201).json({ message: `Your song is not : ${song}` });
+              res.status(201).json({ message: `Can't find ${song}` });
           }
           console.log('Python script output:', stdout);
         res.status(201).json({ message: `${stdout}` });
@@ -104,6 +113,47 @@ app.post('/api/mood', cors() , (req,res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Process audio and generate theory
+app.post('/api/process-audio', upload.single('audio'), (req, res) => {
+    const audioFilePath = req.file.path;
+
+    try {
+        const jarvisScript = path.join(__dirname, 'jarvis.py');
+        const theoryScript = path.join(__dirname, 'theory_generator.py');
+
+        // Step 1: Run Jarvis to transcribe the audio
+        execFile('python', [jarvisScript, audioFilePath], (err, stdout, stderr) => {
+            if (err || stderr) {
+                console.error('Error in Jarvis:', err || stderr);
+                res.status(500).json({ message: 'Error processing audio.' });
+                return;
+            }
+
+            const transcribedText = stdout.trim();
+
+            // Step 2: Generate theory based on transcribed text
+            execFile('python', [theoryScript, transcribedText], (err2, stdout2, stderr2) => {
+                if (err2 || stderr2) {
+                    console.error('Error in theory generation:', err2 || stderr2);
+                    res.status(500).json({ message: 'Error generating theory.' });
+                    return;
+                }
+
+                const theory = stdout2.trim();
+                res.status(200).json({ message: theory });
+            });
+        });
+    } catch (err) {
+        console.error('Error processing request:', err);
+        res.status(500).json({ message: 'Server error.' });
+    } finally {
+        // Clean up the uploaded audio file
+        fs.unlink(audioFilePath, (err) => {
+            if (err) console.error('Error deleting temporary audio file:', err);
+        });
     }
 });
 

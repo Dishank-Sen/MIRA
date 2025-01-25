@@ -19,12 +19,21 @@
 </head>
 <body>
     <header>
-        <h1>SHAZAM</h1>
+        <div><img src="./assets/logo1.jpg" alt="logo" style="height: 100px; width: 100px;"></div>
+
+        <!-- Navigation bar below the header -->
         <nav class="navbar">
             <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./html/find.html">Find</a></li>
-                <li><a href="./html/content.html">Content</a></li>
+                <li><a href="/">Home</a></li>
+                <!-- <li><a href="/find">Find</a></li> -->
+                <li><a href="/content">Content</a></li>
+                <li><a href="/mood">Your Mood</a></li>
+                <li class="search-container">
+                    <form id="searchForm">
+                        <input type="text" placeholder="Search..." id="search-bar">
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </header>
@@ -67,15 +76,27 @@
         </form>
 
         <!-- Loading Icon -->
-        <div class="loading-icon" id="loading-icon">
-            <img src="https://app.lottiefiles.com/animation/a5f3d13c-a17c-459e-8d26-59e6c7f8a24d" alt="Loading..." width="50">
-        </div>
+        <div style="
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-top: 50px;" id="loading">
+    <img src="../assets/loading.gif" alt="loading..." />
+</div>
 
         <!-- Section to display the result -->
         <pre class="result" id="result">
             <!-- The data will be displayed here after the response -->
         </pre>
     </div>
+
+    <footer>
+        <p>©️ 2025 Mirify. All rights reserved.</p>
+    </footer>
 
     <script src="../js/content.js"></script>
 </body>
